@@ -20,6 +20,10 @@ class RandomWordsState extends State<RandomWords> {
           IconButton(
             icon: Icon(Icons.list),
             onPressed: _pushSaved,
+          ),
+          IconButton(
+            icon: Icon(Icons.image),
+            onPressed: _navigateLayoutTutorial,
           )
         ],
       ),
@@ -71,5 +75,9 @@ class RandomWordsState extends State<RandomWords> {
 
   void _pushSaved() {
     Navigator.pushNamed(context, "/favList", arguments: _saved);
+  }
+
+  void _navigateLayoutTutorial() {
+    Navigator.pushNamed(context, '/layoutTutorial');
   }
 }

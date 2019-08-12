@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:tutorial/randomwords.dart';
 
 import 'favouriteslist.dart';
+import 'layouttutorial.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,10 +18,11 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => RandomWords(),
-        '/favList': (context) =>
-            FavouritesList(savedList: ModalRoute.of(context).settings.arguments)
+        '/favList': (context) => FavouritesList(
+            savedList: ModalRoute.of(context).settings.arguments),
+        '/layoutTutorial': (context) => LayoutTutoralView()
       },
-      home: RandomWords(),
+      //home: RandomWords(),
     );
   }
 }
