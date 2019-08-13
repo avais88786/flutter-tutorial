@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'favouritewidget.dart';
 
@@ -37,14 +38,6 @@ class LayoutTutoralView extends StatelessWidget {
                       ),
                     ),
                     FavouriteWidget()
-                    // Container(
-                    //   child: Column(
-                    //     children: <Widget>[
-                    //       Icon(Icons.star, color: Colors.red[500]),
-                    //       Text('850')
-                    //     ],
-                    //   ),
-                    // )
                   ])),
           Container(
             padding: EdgeInsets.all(10),
@@ -64,9 +57,24 @@ class LayoutTutoralView extends StatelessWidget {
   }
 
   Widget _buildButton(Color color, IconData icon, String label) {
-    return Column(
-      children: <Widget>[Icon(icon, color: color), Text(label)],
-    );
+    if (label.toLowerCase() == 'route') {
+      return Column(
+        children: <Widget>[
+          IconButton(
+            icon: Icon(icon, color: color),
+            onPressed: _openMaps,
+          ),
+          Text(label),
+        ],
+      );
+    } else {
+      return Column(
+        children: <Widget>[
+          Icon(icon, color: color),
+          Text(label),
+        ],
+      );
+    }
   }
 
   Widget _buildTextArea() {
@@ -82,5 +90,14 @@ class LayoutTutoralView extends StatelessWidget {
         softWrap: true,
       ),
     );
+  }
+
+  void _openMaps() async {
+    const url = 'https://www.google.com/maps/search/?api=1&query=inverness';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
