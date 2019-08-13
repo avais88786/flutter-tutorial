@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import 'favouritewidget.dart';
+
 class LayoutTutoralView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color color = Theme.of(context).primaryColor;
 
     return Scaffold(
-      body: Column(
+      body: ListView(
         children: <Widget>[
           Image.asset('assets/inverness.png'),
           Container(
@@ -34,14 +36,15 @@ class LayoutTutoralView extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      child: Column(
-                        children: <Widget>[
-                          Icon(Icons.star, color: Colors.red[500]),
-                          Text('850')
-                        ],
-                      ),
-                    )
+                    FavouriteWidget()
+                    // Container(
+                    //   child: Column(
+                    //     children: <Widget>[
+                    //       Icon(Icons.star, color: Colors.red[500]),
+                    //       Text('850')
+                    //     ],
+                    //   ),
+                    // )
                   ])),
           Container(
             padding: EdgeInsets.all(10),
@@ -53,7 +56,8 @@ class LayoutTutoralView extends StatelessWidget {
                 _buildButton(color, Icons.share, 'Share')
               ],
             ),
-          )
+          ),
+          _buildTextArea()
         ],
       ),
     );
@@ -67,9 +71,16 @@ class LayoutTutoralView extends StatelessWidget {
 
   Widget _buildTextArea() {
     return Container(
-      padding: EdgeInsets.all(10),
-      
-
-    )
+      padding: EdgeInsets.all(32),
+      child: Text(
+        'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
+        'Alps. Situated 1,578 meters above sea level, it is one of the '
+        'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
+        'half-hour walk through pastures and pine forest, leads you to the '
+        'lake, which warms to 20 degrees Celsius in the summer. Activities '
+        'enjoyed here include rowing, and riding the summer toboggan run.',
+        softWrap: true,
+      ),
+    );
   }
 }
