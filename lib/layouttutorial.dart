@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'favouritewidget.dart';
+import 'informationwidget.dart';
 
 class LayoutTutoralView extends StatelessWidget {
   @override
@@ -50,7 +51,8 @@ class LayoutTutoralView extends StatelessWidget {
               ],
             ),
           ),
-          _buildTextArea()
+          _buildTextArea(),
+          InformationWidgetParent()
         ],
       ),
     );
