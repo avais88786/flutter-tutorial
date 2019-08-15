@@ -1,5 +1,8 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as prefix0;
+import 'package:tutorial/orientationwidget.dart';
+import 'package:tutorial/themewidget.dart';
 
 class RandomWords extends StatefulWidget {
   @override
@@ -14,6 +17,7 @@ class RandomWordsState extends State<RandomWords> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: _buildDrawer(),
       appBar: AppBar(
         title: Text('Startup Name Generator'),
         actions: <Widget>[
@@ -24,7 +28,31 @@ class RandomWordsState extends State<RandomWords> {
           IconButton(
             icon: Icon(Icons.image),
             onPressed: _navigateLayoutTutorial,
-          )
+          ),
+          PopupMenuButton(
+            itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+              PopupMenuItem(
+                child: FlatButton.icon(
+                    icon: Icon(Icons.list),
+                    label: Text('View Favourites'),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      _pushSaved();
+                    }),
+              ),
+              PopupMenuDivider(),
+              PopupMenuItem(
+                child: FlatButton.icon(
+                  icon: Icon(Icons.image),
+                  label: Text('View Layout Tut. view'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    _navigateLayoutTutorial();
+                  },
+                ),
+              )
+            ],
+          ),
         ],
       ),
       body: _buildSuggestions(),
@@ -79,5 +107,51 @@ class RandomWordsState extends State<RandomWords> {
 
   void _navigateLayoutTutorial() {
     Navigator.pushNamed(context, '/layoutTutorial');
+  }
+
+  _buildDrawer() {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            margin: EdgeInsets.only(top: 20),
+            child: Text('Main Menu'),
+            decoration: BoxDecoration(color: Colors.blue),
+          ),
+          ListTile(
+            leading: Icon(Icons.live_tv),
+            title: Text(
+              'Call API',
+              style: TextStyle(color: Colors.red),
+            ),
+          ),
+          Divider(),
+          ListTile(
+            title: Text(
+              'Update UI as Orientation changes',
+              style: TextStyle(color: Colors.green),
+            ),
+            trailing: Icon(Icons.stay_primary_portrait),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, OrientationWidget.ROUTENAME);
+            },
+          ),
+          Divider(),
+          ListTile(
+            title: Text(
+              'Dynamic Theme',
+              style: TextStyle(color: Colors.orange),
+            ),
+            trailing: Icon(Icons.theaters),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, ThemeWidget.ROUTENAME);
+            },
+          )
+        ],
+      ),
+    );
   }
 }

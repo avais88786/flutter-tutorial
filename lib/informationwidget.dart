@@ -63,6 +63,7 @@ class InformationWidgetChild extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       child: GoogleMap(
+        onTap: _handleMapTap,
         initialCameraPosition: CameraPosition(
             target: const LatLng(45.521563, -122.677433), zoom: 11.0),
         mapType: MapType.normal,
@@ -71,6 +72,10 @@ class InformationWidgetChild extends StatelessWidget {
   }
 
   void _handleTap() {
+    onChanged(!change);
+  }
+
+  void _handleMapTap(latlong) {
     onChanged(!change);
   }
 }
