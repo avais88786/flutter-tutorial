@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial/orientationwidget.dart';
 import 'package:tutorial/randomwords.dart';
+import 'package:tutorial/tabswidget.dart';
 import 'package:tutorial/themewidget.dart';
 
 import 'favouriteslist.dart';
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
             savedList: ModalRoute.of(context).settings.arguments),
         '/layoutTutorial': (context) => LayoutTutoralView(),
         OrientationWidget.ROUTENAME: (context) => OrientationWidget(),
-        ThemeWidget.ROUTENAME: (context) => ThemeWidget()
+        ThemeWidget.ROUTENAME: (context) => ThemeWidget(),
+        TabsWidget.ROUTENAME: (context) => TabsWidget()
       },
       //home: RandomWords(),
     );

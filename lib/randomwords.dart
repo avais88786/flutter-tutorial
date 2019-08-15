@@ -2,6 +2,7 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
 import 'package:tutorial/orientationwidget.dart';
+import 'package:tutorial/tabswidget.dart';
 import 'package:tutorial/themewidget.dart';
 
 class RandomWords extends StatefulWidget {
@@ -148,6 +149,18 @@ class RandomWordsState extends State<RandomWords> {
             onTap: () {
               Navigator.pop(context);
               Navigator.pushNamed(context, ThemeWidget.ROUTENAME);
+            },
+          ),
+          Divider(),
+          ListTile(
+            title: Text(
+              'Tabs demo',
+              style: TextStyle(color: Colors.blueGrey),
+            ),
+            trailing: Icon(Icons.tab),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, TabsWidget.ROUTENAME);
             },
           )
         ],
