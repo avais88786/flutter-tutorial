@@ -1,6 +1,7 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
+import 'package:tutorial/formfieldswidget.dart';
 import 'package:tutorial/orientationwidget.dart';
 import 'package:tutorial/tabswidget.dart';
 import 'package:tutorial/themewidget.dart';
@@ -161,6 +162,18 @@ class RandomWordsState extends State<RandomWords> {
             onTap: () {
               Navigator.pop(context);
               Navigator.pushNamed(context, TabsWidget.ROUTENAME);
+            },
+          ),
+          Divider(),
+          ListTile(
+            title: Text(
+              'Form Field validation',
+              style: TextStyle(color: Colors.blueGrey),
+            ),
+            trailing: Icon(Icons.tab),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, FormFieldsWidget.ROUTENAME);
             },
           )
         ],
