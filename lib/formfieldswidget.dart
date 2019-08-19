@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tutorial/user.dart';
+import 'package:tutorial/models/user.dart';
 
 class FormFieldsWidget extends StatefulWidget {
   static const String ROUTENAME = '/formfieldswidget';

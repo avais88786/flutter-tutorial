@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:tutorial/apicallwidget.dart';
 import 'package:tutorial/formfieldswidget.dart';
 import 'package:tutorial/orientationwidget.dart';
 import 'package:tutorial/randomwords.dart';
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
         OrientationWidget.ROUTENAME: (context) => OrientationWidget(),
         ThemeWidget.ROUTENAME: (context) => ThemeWidget(),
         TabsWidget.ROUTENAME: (context) => TabsWidget(),
-        FormFieldsWidget.ROUTENAME: (context) => FormFieldsWidget()
+        FormFieldsWidget.ROUTENAME: (context) => FormFieldsWidget(),
+        ApiCallWidget.ROUTENAME: (context) => ApiCallWidget()
       },
       //home: RandomWords(),
     );

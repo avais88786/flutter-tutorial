@@ -1,6 +1,7 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
+import 'package:tutorial/apicallwidget.dart';
 import 'package:tutorial/formfieldswidget.dart';
 import 'package:tutorial/orientationwidget.dart';
 import 'package:tutorial/tabswidget.dart';
@@ -127,6 +128,10 @@ class RandomWordsState extends State<RandomWords> {
               'Call API',
               style: TextStyle(color: Colors.red),
             ),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, ApiCallWidget.ROUTENAME);
+            },
           ),
           Divider(),
           ListTile(
