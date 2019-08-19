@@ -40,14 +40,17 @@ class DatabaseHelperService {
         'Travelling INTEGER NOT NULL');
   }
 
-  Future<int> create<T extends IMapImplementor>(T data, String tableName) async {
+  Future<int> create<T extends IMapImplementor>(
+      T data, String tableName) async {
     var db = await database;
     int id = await db.insert(tableName, data.toMap());
     return id;
   }
 
-  Future<T> read<T>(){
-    
+  Future<List<T>> readAll<T extends IMapImplementor>(
+      T instance, String tableName) async {
+    var db = await database;
+    List<Map<String, dynamic>> maps = await db.query(tableName);
+    return instance.fromMaps(maps);
   }
-
 }

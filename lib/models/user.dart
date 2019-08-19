@@ -5,8 +5,7 @@ import 'package:tutorial/servies/IMapImplementor.dart';
 part 'user.g.dart';
 
 @JsonSerializable(nullable: true)
-class User extends IMapImplementor{
-  
+class User extends IMapImplementor<User> {
   static const String PassionCooking = 'cooking';
   static const String PassionHiking = 'hiking';
   static const String PassionTraveling = 'traveling';
@@ -46,5 +45,12 @@ class User extends IMapImplementor{
   save(context) {
     Scaffold.of(context)
         .showSnackBar(SnackBar(content: Text(toJson()['firstName'])));
+  }
+
+  @override
+  List<User> fromMaps(List<Map<String, dynamic>> maps) {
+    return List.generate(maps.length, (i) {
+      return User.fromMap(maps[i]);
+    });
   }
 }
