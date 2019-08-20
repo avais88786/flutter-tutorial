@@ -1,9 +1,10 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart' as prefix0;
 import 'package:tutorial/apicallwidget.dart';
 import 'package:tutorial/formfieldswidget.dart';
 import 'package:tutorial/gestureswidget.dart';
+import 'package:tutorial/imagewidget.dart';
+import 'package:tutorial/listwidget.dart';
 import 'package:tutorial/orientationwidget.dart';
 import 'package:tutorial/tabswidget.dart';
 import 'package:tutorial/themewidget.dart';
@@ -192,6 +193,30 @@ class RandomWordsState extends State<RandomWords> {
             onTap: () {
               Navigator.pop(context);
               Navigator.pushNamed(context, GesturesWidget.ROUTENAME);
+            },
+          ),
+          Divider(),
+          ListTile(
+            title: Text(
+              'Images tutorial',
+              style: TextStyle(color: Colors.blueGrey),
+            ),
+            trailing: Icon(Icons.image),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, ImageWidget.ROUTENAME);
+            },
+          ),
+          Divider(),
+          ListTile(
+            title: Text(
+              'List tutorial',
+              style: TextStyle(color: Colors.blueGrey),
+            ),
+            trailing: Icon(Icons.list),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, ListWidget.ROUTENAME);
             },
           )
         ],

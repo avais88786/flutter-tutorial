@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:tutorial/apicallwidget.dart';
 import 'package:tutorial/formfieldswidget.dart';
 import 'package:tutorial/gestureswidget.dart';
+import 'package:tutorial/imagewidget.dart';
+import 'package:tutorial/listwidget.dart';
 import 'package:tutorial/orientationwidget.dart';
 import 'package:tutorial/randomwords.dart';
 import 'package:tutorial/tabswidget.dart';
@@ -15,8 +17,6 @@ import 'favouriteslist.dart';
 import 'layouttutorial.dart';
 
 void main() => runApp(MyApp());
-
-
 
 class MyApp extends StatelessWidget {
   @override
@@ -35,7 +35,9 @@ class MyApp extends StatelessWidget {
         TabsWidget.ROUTENAME: (context) => TabsWidget(),
         FormFieldsWidget.ROUTENAME: (context) => FormFieldsWidget(),
         ApiCallWidget.ROUTENAME: (context) => ApiCallWidget(),
-        GesturesWidget.ROUTENAME: (context) => GesturesWidget()
+        GesturesWidget.ROUTENAME: (context) => GesturesWidget(),
+        ImageWidget.ROUTENAME: (context) => ImageWidget(),
+        ListWidget.ROUTENAME: (context) => ListWidget()
       },
       //home: RandomWords(),
     );

@@ -47,6 +47,50 @@ class FormFieldsWidgetState extends State<FormFieldsWidget> {
                       },
                     ),
                     Container(
+                      padding: EdgeInsets.fromLTRB(0, 50, 0, 20),
+                      child: Text('Subscribe'),
+                    ),
+                    SwitchListTile(
+                      title: Text('Monthly Newsletter'),
+                      value: user.newsletter,
+                      onChanged: (val) {
+                        setState(() {
+                          user.newsletter = val;
+                        });
+                      },
+                    ),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(0, 50, 0, 20),
+                      child: Text('Interests'),
+                    ),
+                    CheckboxListTile(
+                      title: Text(User.PassionCooking),
+                      value: user.passions[User.PassionCooking],
+                      onChanged: (val) {
+                        setState(() {
+                          user.passions[User.PassionCooking] = val;
+                        });
+                      },
+                    ),
+                    CheckboxListTile(
+                      title: Text(User.PassionHiking),
+                      value: user.passions[User.PassionHiking],
+                      onChanged: (val) {
+                        setState(() {
+                          user.passions[User.PassionHiking] = val;
+                        });
+                      },
+                    ),
+                    CheckboxListTile(
+                      title: Text(User.PassionTraveling),
+                      value: user.passions[User.PassionTraveling],
+                      onChanged: (val) {
+                        setState(() {
+                          user.passions[User.PassionTraveling] = val;
+                        });
+                      },
+                    ),
+                    Container(
                       padding: EdgeInsets.symmetric(
                           vertical: 16.0, horizontal: 16.0),
                       child: RaisedButton(
