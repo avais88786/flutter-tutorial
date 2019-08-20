@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tutorial/servies/IMapImplementor.dart';
+import 'package:tutorial/servies/databasehelper-service.dart';
 
 part 'user.g.dart';
 
@@ -45,6 +46,10 @@ class User extends IMapImplementor<User> {
   save(context) {
     Scaffold.of(context)
         .showSnackBar(SnackBar(content: Text(toJson()['firstName'])));
+
+    DatabaseHelperService.instance.create(this, 'USER').then((id) {
+      Scaffold.of(context).showSnackBar(SnackBar(content: Text(id.toString())));
+    });
   }
 
   @override

@@ -37,7 +37,7 @@ class DatabaseHelperService {
         'NewsLetter INTEGER NOT NULL, ' +
         'Cooking INTEGER NOT NULL, ' +
         'Hiking INTEGER NOT NULL, ' +
-        'Travelling INTEGER NOT NULL');
+        'Travelling INTEGER NOT NULL)');
   }
 
   Future<int> create<T extends IMapImplementor>(
