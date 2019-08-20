@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
 import 'package:tutorial/apicallwidget.dart';
 import 'package:tutorial/formfieldswidget.dart';
+import 'package:tutorial/gestureswidget.dart';
 import 'package:tutorial/orientationwidget.dart';
 import 'package:tutorial/tabswidget.dart';
 import 'package:tutorial/themewidget.dart';
@@ -179,6 +180,18 @@ class RandomWordsState extends State<RandomWords> {
             onTap: () {
               Navigator.pop(context);
               Navigator.pushNamed(context, FormFieldsWidget.ROUTENAME);
+            },
+          ),
+          Divider(),
+          ListTile(
+            title: Text(
+              'Gestures tutorial',
+              style: TextStyle(color: Colors.blueGrey),
+            ),
+            trailing: Icon(Icons.drag_handle),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, GesturesWidget.ROUTENAME);
             },
           )
         ],

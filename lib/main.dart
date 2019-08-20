@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial/apicallwidget.dart';
 import 'package:tutorial/formfieldswidget.dart';
+import 'package:tutorial/gestureswidget.dart';
 import 'package:tutorial/orientationwidget.dart';
 import 'package:tutorial/randomwords.dart';
 import 'package:tutorial/tabswidget.dart';
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
         ThemeWidget.ROUTENAME: (context) => ThemeWidget(),
         TabsWidget.ROUTENAME: (context) => TabsWidget(),
         FormFieldsWidget.ROUTENAME: (context) => FormFieldsWidget(),
-        ApiCallWidget.ROUTENAME: (context) => ApiCallWidget()
+        ApiCallWidget.ROUTENAME: (context) => ApiCallWidget(),
+        GesturesWidget.ROUTENAME: (context) => GesturesWidget()
       },
       //home: RandomWords(),
     );
