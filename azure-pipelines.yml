@@ -26,3 +26,9 @@ steps:
   inputs:
     target: 'apk'
     projectDirectory: '.'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'apk-drop'
+    publishLocation: 'Container'
