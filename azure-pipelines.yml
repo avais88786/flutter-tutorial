@@ -33,13 +33,13 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'mv app-release.apk ''$(PROJECT-NAME).apk'''
+    script: 'RENAME app-release.apk ''$(PROJECT-NAME).apk'''
     workingDirectory: '$(build.artifactstagingdirectory)'
   displayName: 'Rename apk to project name apk'
 
 - task: CmdLine@2
   inputs:
-    script: 'ls'
+    script: 'dir'
     workingDirectory: '$(build.artifactstagingdirectory)'
   displayName: 'List contents'
 
