@@ -7,20 +7,17 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-latest'
 
 steps:
 - script: ls
   displayName: 'list contents'
 
-- task: install-flutter-sdk@0
+
+- task: FlutterInstall@0
   inputs:
     channel: 'stable'
-
-#- task: FlutterInstall@0
-#  inputs:
-#    channel: 'stable'
-#    version: 'latest'
+    version: 'latest'
 
 - task: FlutterBuild@0
   inputs:
