@@ -7,12 +7,9 @@ trigger:
 - master
 
 pool:
-  vmImage: 'macOS-10.14'
+  vmImage: 'windows-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
 - script: ls
   displayName: 'list contents'
 
@@ -26,6 +23,25 @@ steps:
   inputs:
     target: 'apk'
     projectDirectory: '.'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'build/app/outputs/apk/release/'
+    Contents: '*.apk'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+  displayName: 'Copy Releaes apk to staging directory'
+
+- task: CmdLine@2
+  inputs:
+    script: 'RENAME app-release.apk ''$(PROJECT-NAME).apk'''
+    workingDirectory: '$(build.artifactstagingdirectory)'
+  displayName: 'Rename apk to project name apk'
+
+- task: CmdLine@2
+  inputs:
+    script: 'dir'
+    workingDirectory: '$(build.artifactstagingdirectory)'
+  displayName: 'List contents'
 
 - task: PublishBuildArtifacts@1
   inputs:
