@@ -10,12 +10,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
 - script: ls
   displayName: 'list contents'
-
 
 - task: FlutterInstall@0
   inputs:
