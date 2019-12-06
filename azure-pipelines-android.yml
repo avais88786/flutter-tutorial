@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 variables:
-- group: Flutter Tutorial
+- group: 'Flutter Tutorial'
 
 trigger:
 - master
