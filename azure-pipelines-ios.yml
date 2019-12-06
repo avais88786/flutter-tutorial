@@ -1,0 +1,51 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'macOS-latest'
+
+steps:
+- script: ls
+  displayName: 'list contents'
+
+
+- task: FlutterInstall@0
+  inputs:
+    channel: 'stable'
+    version: 'latest'
+
+- task: FlutterBuild@0
+  inputs:
+    target: 'ios'
+    projectDirectory: '.'
+    iosCodesign: false
+
+# - task: CopyFiles@2
+#   inputs:
+#     SourceFolder: 'build/app/outputs/apk/release/'
+#     Contents: '*.apk'
+#     TargetFolder: '$(build.artifactstagingdirectory)'
+#   displayName: 'Copy Release ipa to staging directory'
+
+# - task: CmdLine@2
+#   inputs:
+#     script: 'mv app-release.apk ''$(PROJECT-NAME).apk'''
+#     workingDirectory: '$(build.artifactstagingdirectory)'
+#   displayName: 'Rename apk to project name apk'
+
+# - task: CmdLine@2
+#   inputs:
+#     script: 'ls'
+#     workingDirectory: '$(build.artifactstagingdirectory)'
+#   displayName: 'List contents'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'ipa-drop'
+    publishLocation: 'Container'
