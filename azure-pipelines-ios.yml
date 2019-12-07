@@ -29,7 +29,9 @@ steps:
     iosCodesign: false
 
 
-
+- task: CmdLine@2
+  inputs:
+    script: 'ls'
 
 - task: CopyFiles@2
   inputs:
