@@ -28,6 +28,9 @@ steps:
     projectDirectory: '.'
     iosCodesign: false
 
+- task: CmdLine@2
+  inputs:
+    script: 'pwd'
 
 - task: CmdLine@2
   inputs:
@@ -35,7 +38,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/**/build/ios/iphoneos/'
+    SourceFolder: './build/ios/iphoneos/'
     Contents: '*.app'
     TargetFolder: '$(build.artifactstagingdirectory)'
   displayName: 'Copy Release .app to staging directory'
