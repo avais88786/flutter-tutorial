@@ -34,12 +34,14 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'ls'
+    script: 'cp build/ios/iphoneos/Runner.app  $Build.ArtifactStagingDirectory'
+    workingDirectory: '$(Build.SourcesDirectory)'
+  displayName: 'copy using bash'
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: 'build/ios/iphoneos/*.app'
+    Contents: 'build/ios/iphoneos/Runner.app'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copy Release .app to staging directory'
 
