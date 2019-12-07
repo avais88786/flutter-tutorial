@@ -28,9 +28,12 @@ steps:
     projectDirectory: '.'
     iosCodesign: false
 
+
+
+
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'build/ios/iphoneos/'
+    SourceFolder: '$(Build.SourcesDirectory)/**/build/ios/iphoneos/'
     Contents: '*.app'
     TargetFolder: '$(build.artifactstagingdirectory)'
   displayName: 'Copy Release .app to staging directory'
