@@ -34,7 +34,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cp build/ios/iphoneos/Runner.app  $Build.ArtifactStagingDirectory'
+    script: 'cp -r build/ios/iphoneos/Runner.app  $Build.ArtifactStagingDirectory'
     workingDirectory: '$(Build.SourcesDirectory)'
   displayName: 'copy using bash'
 
