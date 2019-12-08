@@ -41,13 +41,13 @@ steps:
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: 'build/ios/iphoneos/Runner.app'
+    Contents: 'build/ios/iphoneos/**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copy Release .app to staging directory'
 
 - task: CmdLine@2
   inputs:
-    script: 'cd build/ios/iphoneos && ls && sudo cp -r ./Runner.app $Build.artifactstagingdirectory'
+    script: 'cd build/ios/ && ls && sudo cp -r ./iphoneos $Build.artifactstagingdirectory'
     workingDirectory: '$(Build.SourcesDirectory)'
   displayName: 'check contents of build dir with .app exts'
 
