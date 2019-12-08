@@ -28,46 +28,24 @@ steps:
     projectDirectory: '.'
     iosCodesign: false
 
-- task: CmdLine@2
-  inputs:
-    script: 'pwd'
-
-- task: CmdLine@2
-  inputs:
-    script: 'sudo cp -r build/ios/iphoneos/Runner.app  $Build.ArtifactStagingDirectory'
-    #workingDirectory: '$(Build.SourcesDirectory)'
-  displayName: 'copy using bash'
-
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: 'build/ios/iphoneos/**'
+    SourceFolder: '$(Build.SourcesDirectory)/build/ios/'
+    Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copy Release .app to staging directory'
 
-- task: CmdLine@2
-  inputs:
-    script: 'cd build/ios/ && ls && sudo cp -r ./iphoneos $Build.artifactstagingdirectory'
-    workingDirectory: '$(Build.SourcesDirectory)'
-  displayName: 'check contents of build dir with .app exts'
+# - task: CmdLine@2
+#   inputs:
+#     script: 'cd build/ios/ && ls && sudo cp -r ./iphoneos $Build.artifactstagingdirectory'
+#     workingDirectory: '$(Build.SourcesDirectory)'
+#   displayName: 'check contents of build dir with .app exts'
 
 - task: CmdLine@2
   inputs:
     script: 'ls'
     workingDirectory: '$(Build.ArtifactStagingDirectory)'
   displayName: 'contents of staging dir'
-
-# - task: CmdLine@2
-#   inputs:
-#     script: 'mv app-release.apk ''$(PROJECT-NAME).apk'''
-#     workingDirectory: '$(build.artifactstagingdirectory)'
-#   displayName: 'Rename apk to project name apk'
-
-# - task: CmdLine@2
-#   inputs:
-#     script: 'ls'
-#     workingDirectory: '$(build.artifactstagingdirectory)'
-#   displayName: 'List contents'
 
 - task: PublishBuildArtifacts@1
   inputs:
