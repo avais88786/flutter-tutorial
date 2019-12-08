@@ -45,6 +45,18 @@ steps:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copy Release .app to staging directory'
 
+- task: CmdLine@2
+  inputs:
+    script: 'cd build/ios/iphoneos && ls'
+    workingDirectory: '$(Build.SourcesDirectory)'
+  displayName: 'check contents of build dir'
+
+- task: CmdLine@2
+  inputs:
+    script: 'ls'
+    workingDirectory: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'contents of staging dir'
+
 # - task: CmdLine@2
 #   inputs:
 #     script: 'mv app-release.apk ''$(PROJECT-NAME).apk'''
