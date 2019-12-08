@@ -34,7 +34,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cp -r build/ios/iphoneos/Runner.app  $Build.ArtifactStagingDirectory'
+    script: 'sudo cp -r build/ios/iphoneos/Runner.app  $Build.ArtifactStagingDirectory'
     #workingDirectory: '$(Build.SourcesDirectory)'
   displayName: 'copy using bash'
 
@@ -47,15 +47,22 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'cd build/ios/iphoneos && ls'
+    script: 'cd build/ios/iphoneos && ls && cp -r ./Runner.app $Build.artifactstagingdirectory'
     workingDirectory: '$(Build.SourcesDirectory)'
-  displayName: 'check contents of build dir'
+  displayName: 'check contents of build dir with .app exts'
 
 - task: CmdLine@2
   inputs:
     script: 'ls'
     workingDirectory: '$(Build.ArtifactStagingDirectory)'
   displayName: 'contents of staging dir'
+
+
+- task: CmdLine@2
+  inputs:
+    script: 'cd build/ios/iphoneos && ls && cp -r ./Runner $Build.artifactstagingdirectory'
+    workingDirectory: '$(Build.SourcesDirectory)'
+  displayName: 'check contents of build dir without .app exts'
 
 # - task: CmdLine@2
 #   inputs:
